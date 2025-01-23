@@ -1,151 +1,122 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #ff9a9e, #fecfef);
-    color: #333;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #ff9a9e, #fecfef);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  animation: zoom-in 1s ease;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #ff6f61;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+button {
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e55b50;
+  transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .container {
-    text-align: center;
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 500px;
-    animation: zoom-in 1s ease;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  h1 {
-    font-size: 2.5rem;
-    color: #ff6f61;
-    margin-bottom: 20px;
+}
+
+@keyframes zoom-in {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
   }
-  
-  .big-text {
-    font-size: 4rem;
-    color: #ff6f61;
-    animation: zoom-bounce 0.7s ease forwards;
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
-  
-  p {
-    font-size: 1.2rem;
-    margin: 15px 0;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
-  button {
-    border: none;
-    border-radius: 50px;
-    padding: 15px 25px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  50% {
+    transform: translateY(-10px);
   }
-  
-  .glow-button {
-    background: linear-gradient(45deg, #ff6f61, #ff9a9e);
-    color: white;
-    box-shadow: 0 4px 15px rgba(255, 111, 97, 0.5);
+}
+
+/* Surprise Section */
+.hidden {
+  display: none;
+}
+
+#revealButton {
+  animation: bounce 1s infinite;
+}
+
+.message {
+  font-size: 1.3rem;
+  margin: 20px 0;
+  color: #ff6f61;
+}
+
+#fireworks {
+  height: 200px;
+  margin-top: 20px;
+}
+
+/* Fireworks Effect */
+.firework {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  background: radial-gradient(circle, #ff6f61, #ff9a9e);
+  border-radius: 50%;
+  animation: explode 1s ease-out infinite;
+}
+
+@keyframes explode {
+  0% {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  .glow-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(255, 111, 97, 0.8);
+  100% {
+    opacity: 0;
+    transform: scale(3);
   }
-  
-  /* Animations */
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes zoom-in {
-    from {
-      transform: scale(0.8);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes zoom-bounce {
-    0% {
-      transform: scale(0.8);
-    }
-    50% {
-      transform: scale(1.2);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  
-  /* Staggered Fade-in */
-  .fade-in {
-    animation: fade-in 1s ease forwards;
-  }
-  
-  .fade-in.delay-1 {
-    animation-delay: 0.5s;
-  }
-  
-  .fade-in.delay-2 {
-    animation-delay: 1s;
-  }
-  
-  .fade-in.delay-3 {
-    animation-delay: 1.5s;
-  }
-  
-  /* Surprise Section */
-  .hidden {
-    display: none;
-  }
-  
-  .message {
-    font-size: 1.4rem;
-    color: #ff6f61;
-  }
-  
-  /* Fireworks */
-  #fireworks {
-    height: 200px;
-    margin-top: 20px;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .firework {
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    background: radial-gradient(circle, #ff6f61, #ff9a9e);
-    border-radius: 50%;
-    animation: explode 1.5s ease-out infinite;
-  }
-  
-  @keyframes explode {
-    0% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(3);
-      opacity: 0;
-    }
-  }
-  
+}
